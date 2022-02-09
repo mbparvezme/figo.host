@@ -1,0 +1,216 @@
+:root {
+  --color-1: #ffffff;
+  --color-2: #f7f7f8;
+  --color-3: #eeeeef;
+  --color-4: #111114;
+  --color-5: #222224;
+  --color-6: #333334;
+
+  --color-dark: #222224;
+  --color-darker: #111114;
+
+  --color-light: #f7f7f8;
+  --color-lighter: #ffffff;
+
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-xxl: 22px;
+}
+
+:root.dark {
+  --color-1: #111114;
+  --color-2: #222224;
+  --color-3: #333334;
+  --color-4: #ffffff;
+  --color-5: #f7f7f8;
+  --color-6: #eeeeef;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.transition-sm {
+  @apply transition-all;
+}
+.transition-base {
+  @apply transition-all duration-300;
+}
+.transition-lg {
+  @apply transition-all duration-500;
+}
+
+.center-item {
+  @apply flex justify-center items-center;
+}
+.between-center {
+  @apply flex justify-between items-center;
+}
+
+.btn {
+  @apply focus-within:outline-none focus:outline-none focus-visible:border
+}
+
+.title-font,h1,h2,h3,h4,h5,h6{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+  color: var(--color-5);
+}
+.dark body {
+  background-color: var(--color-1);
+}
+
+main{
+  max-width: 1600px;
+  @apply mx-auto;
+}
+
+a {
+  @apply text-primary;
+}
+#moon-icon {
+  @apply block fill-color6;
+}
+#sun-icon {
+  @apply hidden fill-secondary;
+}
+.dark #moon-icon {
+  @apply hidden;
+}
+.dark #sun-icon {
+  @apply block;
+}
+
+.dropdown {
+  @apply relative;
+}
+.dropdown-label {
+  @apply cursor-pointer flex items-center;
+}
+.dropdown-content-wrap {
+  @apply opacity-0 invisible transition-all duration-300 transform origin-top-right -translate-y-2 scale-95 relative z-[14];
+}
+.dropdown-content {
+  @apply hidden origin-top-right rounded-lg bg-color1 px-4 py-8 shadow-lg absolute top-full left-0 w-60 border border-transparent dark:border-color3 flex-col text-sm font-normal overflow-hidden;
+}
+.dropdown-content.dropdown-full {
+  @apply w-full;
+}
+.dropdown-content.dropdown-right {
+  @apply origin-top-left left-auto right-0;
+}
+.dropdown-content.dropdown-center {
+  @apply origin-top left-1/2 transform -translate-x-1/2;
+}
+
+.dropdown-content .dropdown-title {
+  @apply opacity-50 text-xs uppercase mb-3 px-4 font-semibold;
+}
+.dropdown-content .dropdown-link {
+  @apply px-4 py-3 text-color6 rounded-lg hover:shadow-lg dark:hover:bg-color2 transition-all duration-300;
+}
+
+.divider,.divider-lg {
+  @apply pb-2 mt-2 border-t h-0 dark:border-gray-700;
+}
+.divider-lg {
+  @apply pb-4 mt-4;
+}
+
+.dropdown-content .divider ~ .dropdown-title {
+  @apply mt-3;
+}
+
+.dropdown.show .backdrop {
+  @apply fixed inset-0 z-[12] bg-opacity-50 bg-gray-500 dark:bg-gray-700 dark:bg-opacity-50;
+}
+.dropdown.show .dropdown-content {
+  @apply flex;
+}
+
+.dropdown.show .dropdown-label {
+  @apply opacity-50;
+}
+
+.dropdown.show .dropdown-content-wrap {
+  opacity: 1;
+  transform: translate(0) scale(1);
+  visibility: visible;
+}
+
+
+/* POST STYLE */
+.post h2{
+  @apply text-3xl font-semibold mb-6;
+}
+.post h2:not(:first-child){
+  @apply mt-16;
+}
+.post h3 {
+  @apply text-2xl font-semibold mb-5 pt-8;
+}
+.post h4 {
+  @apply text-xl font-semibold mb-4 pt-8;
+}
+.post .wp-block-code code{
+  @apply pb-4 block overflow-x-auto;
+}
+.post .has-text-align-center{
+  @apply text-center;
+}
+.post b,.post strong{
+  @apply font-semibold;
+}
+.post p,.post li{
+  @apply text-color6 dark:font-light;
+}
+.post ol{
+  @apply list-decimal;
+}
+.post ul{
+  @apply list-disc;
+}
+.post ol,.post ul{
+  @apply list-inside pl-4 mb-4;
+}
+.post p:not(:last-child),.post img:not(:last-child){
+  @apply mb-4;
+}
+.post img{
+  @apply rounded-lg shadow-lg;
+}
+.post blockquote{
+  @apply mb-8 bg-color3 rounded-lg px-4 py-3 font-light;
+}
+.post p.has-drop-cap:first-letter {
+  float: left;
+  font-family: Georgia;
+  font-size: 75px;
+  line-height: 60px;
+  @apply text-primary pl-1 pr-2 pt-2;
+}
+
+.post .wp-block-code{
+  font-family: 'Courier New', Courier, monospace;
+  @apply pt-4 px-8 border rounded-xl bg-dark text-light overflow-x-hidden mb-8;
+}
+.post .wp-block-columns{
+  @apply grid grid-cols-1 md:grid-cols-2 gap-8;
+}
+
+
+::-webkit-scrollbar {
+  @apply w-2;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-4);
+}

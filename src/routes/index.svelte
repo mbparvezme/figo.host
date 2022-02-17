@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ fetch }) {
-    const res = await fetch("/api/home");
+    const res = await fetch("http://api.figo.host/public/");
     if (res.ok) {
       return {props:{data: await res.json()}}
     }
